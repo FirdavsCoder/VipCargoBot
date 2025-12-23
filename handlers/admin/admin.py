@@ -55,7 +55,7 @@ Agar sizga eski fotohisobot borgan bo’lsa , to’lov qildim tugmasini bosip sh
         try:
             await bot.send_photo(
                 chat_id=user_id,
-                photo=types.InputFile(path_or_bytesio='photos/topcargo_logo.png'),
+                photo=types.InputFile(path_or_bytesio='photos/vipcargoLogo.jpg'),
                 caption=caption
             )
             await asyncio.sleep(0.34)

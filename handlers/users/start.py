@@ -167,7 +167,7 @@ async def btn_main_1(message: types.Message, state: FSMContext):
 async def btn_abt_us_1(message: types.Message):
     text = await LangSet(message.from_user.id)._('about_us_text')
     return await message.answer_photo(
-        photo=types.InputFile(path_or_bytesio='photos/topcargo_logo.png'),
+        photo=types.InputFile(path_or_bytesio='photos/vipcargoLogo.jpg'),
         caption=text, reply_markup=await contact_us_buttons(message.from_user.id))
 
 
@@ -175,7 +175,7 @@ async def btn_abt_us_1(message: types.Message):
 async def btn_abt_us_2(message: types.Message):
     text = await LangSet(message.from_user.id)._('contact_us_text')
     return await message.answer_photo(
-        photo=types.InputFile(path_or_bytesio='photos/topcargo_logo.png'),
+        photo=types.InputFile(path_or_bytesio='photos/vipcargoLogo.jpg'),
         caption=text, reply_markup=await contact_us_buttons(message.from_user.id))
 
 
@@ -183,5 +183,5 @@ async def btn_abt_us_2(message: types.Message):
 async def btn_abt_us_3(message: types.Message):
     text = await LangSet(message.from_user.id)._('prohibited_products')
     return await message.answer_photo(
-        photo=types.InputFile(path_or_bytesio='photos/topcargo_logo.png'),
+        photo=types.InputFile(path_or_bytesio='photos/vipcargoLogo.jpg'),
         caption=text, reply_markup=await contact_us_buttons(message.from_user.id))

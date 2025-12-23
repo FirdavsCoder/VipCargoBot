@@ -8,8 +8,8 @@ env.read_env()
 # BOT_TOKEN = '6630543950:AAH3p_Xf15-0YO7FJwV_pRqqy06A7STOR50'
 # .env fayl ichidan quyidagilarni o'qiymiz
 BOT_TOKEN = env.str("BOT_TOKEN")  # Bot toekn
-ADMINS = [1849953640, 686987202, 5802474115, 996273815, 6732399552]
-SUPER_ADMINS = [1849953640, 686987202]
+ADMINS = [1849953640, 1006648716]
+SUPER_ADMINS = [1849953640, 1006648716]
 IP = env.str("ip")  # Xosting ip manzili
 
 DB_USER = env.str("DB_USER")
