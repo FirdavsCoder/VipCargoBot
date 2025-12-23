@@ -17,7 +17,7 @@ async def accepted_express_id(call: types.CallbackQuery):
 陕西省 西安市 雁塔区 丈八沟街道  高新区丈八六路49号103室中京仓库
 ({dto['express_id']})</code> 
 
-Avia post code: 710076
+post code: 710076
 
 {txt}
 """
@@ -32,12 +32,12 @@ Avia post code: 710076
     branch_data = await db.get_branch_channel_by_branch_code(dto['express_id'][:3])
     txt = ''
     if dto['express_id'].startswith('TPP') and int(dto['express_id'].split('-')[-1]) >= 3170:
-            txt = last_txt.replace('#username', '@topcargo_admin2')
+            txt = last_txt.replace('#username', '@VipcargoAdmin')
     else:
         if branch_data:
             txt = last_txt.replace("#username", branch_data['admin_username'])
         else:
-            txt = last_txt.replace("#username", "@topcargo_admin")
+            txt = last_txt.replace("#username", "@VipcargoAdmin")
     await bot.send_message(call.data.split(":")[2], txt)
     await call.message.delete()
     await call.answer("✅ Qabul qilindi", show_alert=True)

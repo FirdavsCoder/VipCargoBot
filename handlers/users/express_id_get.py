@@ -306,49 +306,7 @@ async def get_express_id(message: types.Message, state: FSMContext):
     branch_code = data.get('branch_code')
     dto_user = await db.get_referral_user_by_user_id(message.from_user.id)
 
-    # FOR ONLY REFERRAL USERS
-    # if dto_user:
-    #     dto_result = await db.select_last_added_ref_users_id()
-    #     teacher_dto = await db.get_ref_link_by_express_code(dto_user['express_code'])
-    #     if not dto_result:
-    #         new_id = f"{dto_user['express_code']}-1"
-    #     else:
-    #         new_id = f"{dto_user['express_code']}-{str(int(dto_result[0]['express_id'][4:]) + 1)}"
-    #     ref_user_data_id = await db.add_ref_users_id(
-    #         user_id=message.from_user.id,
-    #         teacher_id=teacher_dto['user_id'],
-    #         express_id=new_id,
-    #         full_name=data['name'],
-    #         phone_number=data['phone_number'],
-    #         passport_seria=data['passport_seria'],
-    #         passport_pnfl=data['passport_info'],
-    #         birth_date=data['birthdate'],
-    #         address=data['address'],
-    #         filial=data['filial'],
-    #         passport_front=data['passport_front'],
-    #         passport_back=data['passport_back']
-    #     )
-    #     media_group = [
-    #         types.InputMediaPhoto(media=data['passport_front']),
-    #         types.InputMediaPhoto(media=data['passport_back'], caption=text_admin_express_id_formatter(new_id, data))
-    #     ]
-    #     result = (await bot.send_media_group(
-    #         chat_id=TEACHER_USER_ID_CHECK,
-    #         media=media_group
-    #     ))
-    #     await bot.send_message(
-    #         chat_id=TEACHER_USER_ID_CHECK,
-    #         text="Ushbu malumotlar to'g'rimi?",
-    #         reply_to_message_id=result[0].message_id,
-    #         reply_markup=check_ref_user_id_btn(ref_user_data_id, result[0].message_id, message.from_user.id))
-    #     text = await LangSet(message.from_user.id)._('your_request_sent_get_id')
-    #     new_text = text.replace('#son', f"#{str(ref_user_data_id)}")
-    #     await message.answer(new_text, reply_markup=await start_menu(message.from_user.id))
-    #     await state.finish()
-    #     return
-
-    # NOT REFERRAL USERS FUNCTIONS
-    # else:
+  
     if branch_code:
         filial=data.get('branch')
         id_code = data['branch_code']
@@ -359,12 +317,9 @@ async def get_express_id(message: types.Message, state: FSMContext):
     if data_id:
         new_id_code = f"{id_code}-{str(int(data_id[0]['express_id'][4:]) + 1)}"
     else:
-        new_id_code = f"{id_code}-1"
+        new_id_code = f"{id_code}-2900"
     result = await db.select_last_added_express_id()
-    # if not result:
-    #     new_id = f"{new_id_begin}-1000"
-    # else:
-    #     new_id = f"{new_id_begin}-{str(int(result[0]['express_id'][4:]) + 1)}"
+
 
     try:
         data_id = await db.add_express_id(
