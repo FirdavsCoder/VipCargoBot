@@ -178,7 +178,7 @@ async def get_type_handler(call: types.CallbackQuery, state: FSMContext):
 ⚠️ 3 Kun ichida to’lov qilmasangiz 4chi kundan sizga jarima qo’llaniladi , 4chi kundan boshlab yukingizni har bir saqlangan kuni uchun 20.000 summdan jarima belgilanadi.
         """
         try:
-            if id_code.startswith('TPP') or id_code.startswith('TCH'):
+            if id_code.startswith('VVV') or id_code.startswith('TCH'):
                 print(channel_id)
                 await bot.send_photo(
                     chat_id=user_id,
