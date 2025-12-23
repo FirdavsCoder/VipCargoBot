@@ -220,7 +220,8 @@ async def choose_mail_type(call: types.CallbackQuery, state: FSMContext):
             name=data['name'],
             phone_number=data['phone_number'],
             uzb_id=data_id['express_id'],
-            address=data['address']
+            address=data['address'],
+            mail_type=call.data
         )
     try:
         await bot.edit_message_reply_markup(

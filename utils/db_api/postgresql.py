@@ -436,9 +436,9 @@ ORDER BY created_at DESC
         sql = "UPDATE delivered_products SET mail_type=$1 WHERE user_id=$2"
         return await self.execute(sql, mail_type, user_id, execute=True)
 
-    async def insert_delivery_products(self, user_id, name, phone_number, uzb_id, address):
-        sql = "INSERT INTO delivered_products(user_id, name, phone_number, uzb_id, address) VALUES($1, $2, $3, $4, $5)"
-        return await self.execute(sql, user_id, name, phone_number, uzb_id, address, execute=True)
+    async def insert_delivery_products(self, user_id, name, phone_number, uzb_id, address, mail_type):
+        sql = "INSERT INTO delivered_products(user_id, name, phone_number, uzb_id, address, mail_type) VALUES($1, $2, $3, $4, $5, $6)"
+        return await self.execute(sql, user_id, name, phone_number, uzb_id, address, mail_type, execute=True)
 
     async def create_ref_link(self, user_id, name, link_code, express_code, price, link):
         sql = "INSERT INTO teachers(user_id, name, link_code, express_code, price, link) VALUES($1, $2, $3, $4, $5, $6)"
