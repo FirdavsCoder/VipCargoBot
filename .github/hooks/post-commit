@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Telegram sozlamalari
+BOT_TOKEN="7844686292:AAHGuUF4a3eSGCSEhabc9I2vV22fUjjhjyA"
+CHAT_ID="-1002631755187"
+TOPIC_ID=14
+
+# Commit ma’lumotlari
+COMMIT_MSG=$(git log -1 --pretty=format:"%s")
+COMMIT_HASH=$(git rev-parse --short HEAD)
+AUTHOR=$(git log -1 --pretty=format:"%an")
+
+# Xabar matni
+TEXT="🧩 *Git Commit*
+*Author:* $AUTHOR
+*Hash:* \`$COMMIT_HASH\`
+*Message:* $COMMIT_MSG"
+
+# Yuborish
+curl -s -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" \
+  -d chat_id="$CHAT_ID" \
+  -d message_thread_id="$TOPIC_ID" \
+  -d parse_mode="Markdown" \
+  -d text="$TEXT"
