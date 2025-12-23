@@ -106,7 +106,7 @@ async def get_type_handler(call: types.CallbackQuery, state: FSMContext):
         channel_id = channel_data['complaint_channel_id']
     elif call.from_user.id in ADMINS or call.from_user.id in SUPER_ADMINS:
         cards = await db.get_all_cards()
-        channel_id = -1002383624937
+        channel_id = -1003518837394
     else:
         cards = None
     if not cards:
