@@ -1,10 +1,10 @@
 name: Production Deploy
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ main ]
+    branches: [main]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -14,20 +14,20 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:       
-    - name: Deploy using ssh
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: 22
-        script: |
-          eval "$(ssh-agent -s)"
-          ssh-add ~/.ssh/id_ed25519
-          cd /root/TelegramBots/TopCargoBot
-          git pull origin main
-          git status
-          source env/bin/activate
-          pip install -r requirements.txt
-          systemctl restart TopCargoBot.service 
+    steps:
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          script: |
+            eval "$(ssh-agent -s)"
+            ssh-add ~/.ssh/id_ed25519
+            cd /root/gen_user/TelegramBots/VipCargoBot
+            git pull origin main
+            git status
+            source env/bin/activate
+            pip install -r requirements.txt
+            systemctl restart VipCargoBot.service
