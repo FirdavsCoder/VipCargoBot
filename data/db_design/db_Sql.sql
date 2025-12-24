@@ -409,7 +409,7 @@ INSERT INTO branch_info (
                          complaint_channel_id
 ) VALUES (
           'TPP',
-          '@topcargo_admin',
+          '@VipcargoAdmin',
           '7690861611',
           '-1002292852144',
           '-1002383624937'
